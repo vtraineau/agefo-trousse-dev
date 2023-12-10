@@ -1,0 +1,15 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.sssquircle {
+    mask-image: paint(squircle);
+    --squircle-smooth: 0.8;
+    --squircle-radius: 20px;
+}
+
+.sssquircle-btn {
+    mask-image: paint(squircle);
+    --squircle-smooth: 0.8;
+    --squircle-radius: 20px;
+}

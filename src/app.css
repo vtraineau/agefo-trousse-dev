@@ -9,20 +9,30 @@
     mask-image: paint(squircle);
     --squircle-smooth: 0.8;
     --squircle-radius: 20px;
-    -webkit-animation: safariBugFix infinite 1s;
-    animation: safariBugFix infinite 1s;
+    -webkit-animation: safariBugFix 1s 5 1s;
+    animation: safariBugFix 1s 5 1s;
 }
 
 .sssquircle-btn {
     mask-image: paint(squircle);
     --squircle-smooth: 0.8;
     --squircle-radius: 20px;
-    -webkit-animation: safariBugFix infinite 1s;
-    animation: safariBugFix infinite 1s;
+    -webkit-animation: safariBugFix 1s 5 1s;
+    animation: safariBugFix 1s 5 1s;
 }
 
 html {
     scroll-behavior: smooth;
+}
+
+/* overriding for mobile */
+@media (max-width: 640px) {
+    .text-4xl {
+        /* ORIGINAL VALUES */
+        /* font-size: 2.25rem; */
+        /* line-height: 2.5rem; */
+        font-size: 2.1rem;
+    }
 }
 
 /* This changes all the animations globally */

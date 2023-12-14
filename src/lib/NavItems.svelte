@@ -2,6 +2,7 @@
     import { ArrowText } from "$lib";
 
     export let currentAnchor = "";
+    export let hideMenu;
 </script>
 
 <div class="flex-col justify-start items-start gap-3 inline-flex">
@@ -19,6 +20,7 @@
             <a
                 class="text-neutral-700 text-md md:text-lg font-normal"
                 href="#{navItem.key}"
+                on:click={hideMenu}
             >
                 {#if currentAnchor == navItem.key}
                     <ArrowText item={navItem.text} textStyle="text-md md:text-lg font-medium" />

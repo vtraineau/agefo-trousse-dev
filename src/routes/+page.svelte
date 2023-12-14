@@ -13,20 +13,24 @@
         /** @type {Event|undefined} */ evt,
         initial = false,
     ) => {
-        if (!initial) {
-            toggleMenu();
-        }
         const urlAnchor = decodeURIComponent(window.location.hash.substring(1));
         if (urlAnchor) {
             currentAnchor = urlAnchor;
         }
     };
-    const toggleMenu = () => {
-        document.getElementById("menu_burger")?.classList.toggle("hidden");
-        document.getElementById("menu_cross")?.classList.toggle("hidden");
+    const showMenu = () => {
+        document.getElementById("menu_burger")?.classList.add("hidden");
+        document.getElementById("menu_cross")?.classList.remove("hidden");
         document
             .getElementById("navigation-items-menu")
-            ?.classList.toggle("hidden");
+            ?.classList.remove("hidden");
+    };
+    const hideMenu = () => {
+        document.getElementById("menu_burger")?.classList.remove("hidden");
+        document.getElementById("menu_cross")?.classList.add("hidden");
+        document
+            .getElementById("navigation-items-menu")
+            ?.classList.add("hidden");
     };
 
     // Listen for hashchange event
@@ -109,8 +113,11 @@
             });
         };
 
-        // Call observeElements on component mount
-        observeElements();
+
+        // Call observeElements on component mount (unless mobile/tablet)
+        if (window.innerWidth >= 1024) {
+            observeElements();
+        }
     });
 </script>
 
@@ -119,7 +126,7 @@
         id="navigation"
         class="max-lg:hidden fixed z-50 top-6 left-6 bg-white sssquircle p-7 justify-start items-start gap-2.5"
     >
-        <NavItems {currentAnchor} />
+        <NavItems {currentAnchor} hideMenu={hideMenu} />
     </div>
     <div class="max-lg:hidden absolute top-6 right-6 z-50">
         <img
@@ -168,8 +175,8 @@
             />
             <button
                 id="menu_burger"
-                on:click={toggleMenu}
-                class="w-20 flex flex-col items-center"
+                on:click={showMenu}
+                class="w-20 py-3 flex flex-col items-center"
             >
                 <svg
                     width="53"
@@ -184,7 +191,7 @@
             </button>
             <button
                 id="menu_cross"
-                on:click={toggleMenu}
+                on:click={hideMenu}
                 class="w-20 flex flex-col items-center hidden"
             >
                 <svg
@@ -212,7 +219,7 @@
             </button>
         </div>
         <div id="navigation-items-menu" class="hidden mt-5">
-            <NavItems currentAnchor={undefined} />
+            <NavItems currentAnchor={undefined} hideMenu={hideMenu} />
         </div>
     </div>
     <Section
@@ -253,7 +260,7 @@
     </Section>
     <Section name="apprentissage" bg="bg-purple">
         <SmallBigTitle
-            smallTitle="Apprentissage professionnel"
+            smallTitle="Apprentissages professionnels"
             bigTitle="Des webinaires et des formations accessibles gratuitement"
         />
         <ListWithIntro
@@ -263,7 +270,7 @@
             listItems={[
                 "Une offre de formations mise à jour chaque année",
                 "Des thématiques inspirées des enjeux actuels",
-                "Une combinaison de deux modes d’apprentissage, soit le webinaire et la formation",
+                "Une combinaison de deux niveaux d’apprentissage, soit le webinaire et la formation",
             ]}
         />
         <div class="-mt-5">
@@ -422,7 +429,8 @@
                             répondez pas à ces critères?
                             <a
                                 class="font-medium underline underline-offset-4 bounce_underline"
-                                href="mailto:info@agefo.ca">Écrivez-nous</a
+                                target="_blank"
+                                href="https://agefo.ca/contactez-nous/">Communiquez avec nous</a
                             >
                             pour en discuter!</span
                         >
@@ -482,9 +490,7 @@
                 <span class="">
                     L’AGÉFO organise également un Institut pancanadien de
                     leadership qui s’adresse aux hautes gestionnaires et aux
-                    hauts gestionnaires en éducation de langue française.
-                </span>
-                <span class="">
+                    hauts gestionnaires en éducation de langue française. 
                     Visitez
                     <a
                         href="https://agefo.ca/institut/"
@@ -678,9 +684,9 @@
                 >
                 <div slot="underList" class="mt-10">
                     <SButton
-                        name="Écrivez-nous"
+                        name="Communiquez avec nous"
                         darkBg={true}
-                        href="mailto:info@agefo.ca"
+                        href="https://agefo.ca/contactez-nous/"
                     />
                 </div>
                 </ListWithIntro>
@@ -801,7 +807,7 @@
                     ou votre adhésion?</span
                 >
                 <div class="md:w-1/2 md:self-end items-end">
-                    <SButton name="Écrivez-nous" href="mailto:info@agefo.ca" />
+                    <SButton name="Écrivez-nous" href="https://agefo.ca/contactez-nous/" />
                 </div>
             </div>
         </div>

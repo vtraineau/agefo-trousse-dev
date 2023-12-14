@@ -2,14 +2,131 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@-webkit-keyframes safariBugFix {from { zoom: 100%; } to { zoom: 99.99999%; }}
+@keyframes safariBugFix {from { zoom: 100%; } to { zoom: 99.99999%; }}
+
 .sssquircle {
     mask-image: paint(squircle);
     --squircle-smooth: 0.8;
     --squircle-radius: 20px;
+    -webkit-animation: safariBugFix infinite 1s;
+    animation: safariBugFix infinite 1s;
 }
 
 .sssquircle-btn {
     mask-image: paint(squircle);
     --squircle-smooth: 0.8;
     --squircle-radius: 20px;
+    -webkit-animation: safariBugFix infinite 1s;
+    animation: safariBugFix infinite 1s;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* This changes all the animations globally */
+:root {
+    --animate-duration: 1.5s;
+    --animate-delay: 0.5s;
+}
+
+@keyframes bounce-bottom {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce-bottom-underline {
+    0% {
+        text-underline-offset: 2px;
+    }
+
+    50% {
+        text-underline-offset: 4px;
+    }
+
+    100% {
+        text-underline-offset: 2px;
+    }
+}
+
+
+@keyframes bounce-bottom-underline-bigger {
+    0% {
+        text-underline-offset: 4px;
+    }
+
+    50% {
+        text-underline-offset: 8px;
+    }
+
+    100% {
+        text-underline-offset: 4px;
+    }
+}
+
+.bounce:hover {
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    animation-name: bounce-bottom;
+    animation-duration: 0.5s;
+}
+
+.underline:hover {
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    animation-name: bounce-bottom-underline;
+    animation-duration: 0.5s;
+}
+
+.underline_bigger:hover {
+    animation-name: bounce-bottom-underline-bigger;
+}
+
+@-webkit-keyframes fadeInUp {
+    0% {
+        transform: translate3d(0, 100%, 0);
+        opacity: 0;
+    }
+
+    60% {
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: translateZ(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translate3d(0, 100%, 0);
+        opacity: 0;
+    }
+
+    75% {
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: translateZ(0);
+        opacity: 1;
+    }
+}
+
+.animate_fadeInUp {
+    -webkit-animation: fadeInUp 0.8s ease-out forwards;
+    animation: fadeInUp 0.8s ease-out forwards;
 }

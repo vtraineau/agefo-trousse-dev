@@ -6,8 +6,7 @@ export default {
       width: {
         'chemin': '325px',
         'chemin-md': '700px',
-        'chemin-lg': '915px',
-        'chemin-footer': '1150px',
+        'chemin-lg': '1000px', // 221px
         'chemin-footer': '1150px',
       },
       colors: {
@@ -21,9 +20,16 @@ export default {
       fontFamily: {
         'sans': ['"Instrument Sans"'],
         'tiro': ['"Tiro Bangla"'],
+      },
+      fontSize: {
+        'sm': '.975rem',
+        'base': '1.1rem',
+        'btn': '1.025rem',
+        'lg': '1.25rem',
+        'xl': '1.5rem',
+        '2xl': '1.75rem',
       }
     },
   },
   plugins: [],
 }
-

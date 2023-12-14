@@ -6,21 +6,24 @@
 	<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	%sveltekit.head%
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:wght@400;500;600" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600" />
+	<script type="module">
+		(async function () {
+			if (!("paintWorklet" in CSS)) {
+				await import("https://unpkg.com/css-paint-polyfill");
+			}
+	
+			// @ts-ignore
+			CSS.paintWorklet.addModule(
+				`https://www.unpkg.com/css-houdini-squircle/squircle.min.js`
+			);
+		})();
+	</script>
 </head>
-<script>
-	(async function () {
-		if (!("paintWorklet" in CSS)) {
-			await import("https://unpkg.com/css-paint-polyfill");
-		}
 
-		// @ts-ignore
-		CSS.paintWorklet.addModule(
-			`https://www.unpkg.com/css-houdini-squircle/squircle.min.js`
-		);
-	})();
-</script>
-
-<body data-sveltekit-preload-data="hover">
+<body data-sveltekit-preload-data="hover" style="width: 100vw; overflow-x: hidden;">
 	<div style="display: contents">%sveltekit.body%</div>
 </body>
 

@@ -9,16 +9,16 @@
     mask-image: paint(squircle);
     --squircle-smooth: 0.8;
     --squircle-radius: 20px;
-    -webkit-animation: safariBugFix 1s 5 1s;
-    animation: safariBugFix 1s 5 1s;
+    -webkit-animation: safariBugFix 500ms 8 300ms;
+    animation: safariBugFix 500ms 8 300ms;
 }
 
 .sssquircle-btn {
     mask-image: paint(squircle);
     --squircle-smooth: 0.8;
     --squircle-radius: 20px;
-    -webkit-animation: safariBugFix 1s 5 1s;
-    animation: safariBugFix 1s 5 1s;
+    -webkit-animation: safariBugFix 500ms 8 300ms;
+    animation: safariBugFix 500ms 8 300ms;
 }
 
 html {

@@ -807,7 +807,7 @@
                     ou votre adhésion?</span
                 >
                 <div class="md:w-1/2 md:self-end items-end">
-                    <SButton name="Écrivez-nous" href="https://agefo.ca/contactez-nous/" />
+                    <SButton name="Communiquez avec nous" href="https://agefo.ca/contactez-nous/" />
                 </div>
             </div>
         </div>
